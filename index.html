@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>remindLiza — weekly planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <div class="eyebrow">remindLiza</div>
+        <h1>План недели</h1>
+      </div>
+      <div class="hint">
+        Перетащи задачу из бэклога в календарь. Теперь данные сохраняются в браузере:
+        задачи не пропадут после перезагрузки страницы.
+      </div>
+    </header>
+
+    <div class="wrap">
+      <aside class="backlog">
+        <div class="backlog-head">
+          <div>
+            <div class="backlog-title">Задачи</div>
+            <div class="backlog-sub">Бэклог · перетащи в календарь</div>
+          </div>
+          <button class="mini danger" id="resetBtn" type="button" title="Очистить локальную базу">Сброс</button>
+        </div>
+
+        <div class="task-list" id="taskList"></div>
+
+        <form class="add-task" id="taskForm">
+          <input id="taskInput" maxlength="80" placeholder="Короткая задача…" autocomplete="off" />
+          <button class="send" type="submit">➜</button>
+        </form>
+      </aside>
+
+      <section class="calendar">
+        <div class="cal-body">
+          <div class="cal-head" id="calHead">
+            <div class="corner">
+              <span class="tz">UTC+3</span>
+              <span class="week" id="weekLabel">нед.</span>
+            </div>
+          </div>
+
+          <div class="cal-grid" id="calGrid">
+            <div class="time-gutter" id="timeGutter"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="doneDialog">
+    <div class="modal">
+      <h2>Задача завершена?</h2>
+      <p id="dialogTaskName">Подтверди действие.</p>
+      <div class="modal-actions">
+        <button class="secondary" id="noBtn">Нет</button>
+        <button class="primary" id="yesBtn">Да</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
